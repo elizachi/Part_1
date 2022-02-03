@@ -20,7 +20,7 @@ fun main() {
             val command = getFirstWord(str)
             val arguments = getArguments(str)
             // val commands: Array<Command> = arrayOf()
-            val commandIndex = CommandType.valueOf(command.uppercase(Locale.getDefault())).ordinal
+            // val commandIndex = CommandType.valueOf(command.uppercase(Locale.getDefault())).ordinal
             //commands[commandIndex].execute(arguments)
             if(command == "create"){
                 create(arguments)

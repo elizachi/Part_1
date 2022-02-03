@@ -3,20 +3,11 @@ import java.util.*
 // убирает лишние пробелы из строки для дальнейшей обработки
 fun converter(): String {
     val scanner = Scanner(System.`in`)
-    val str: String = scanner.nextLine().trim();
-    var flag = true
-    var newStr = ""
-    for(element in str){
-        if(element == ' ' && flag){
-            newStr += element
-            flag = false
-        }
-        else if(element != ' '){
-            newStr += element
-            flag = true
-        }
+    var str: String = scanner.nextLine().trim();
+    while(str.contains("  ")) {
+        str = str.replace("  ", " ")
     }
-    return newStr
+    return str
 } // вырезаем первое слово из общей строки
 fun getFirstWord(str: String): String {
     val index = str.indexOf(' ')
