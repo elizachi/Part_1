@@ -12,13 +12,17 @@ fun start() {
 } // команда добавления нового элемента
 fun create(catInfo: String) {
     val index = keys.indexOf("")
-    if(index != -1) {
+    if(index != -1 && isArgumentsCorrect(catInfo)) {
         // добавление id элемента в ключи
         keys[index] = getFirstWord(catInfo)
         // массив значений к соответствующему ключу
         values[index] = getArguments(catInfo).split(" ").toTypedArray()
+        print("Элемент $catInfo создан успешно.\n")
+    } else if(index == -1) {
+        print("Места нет. Попробуйте удалить уже существующий элемент, используя команду delete <имя>.\n")
+    } else {
+        print("Проверьте корректность введённых данных.\n")
     }
-    print("Элемент $catInfo создан успешно.\n")
 } // команда выдачи информации об уже существующем элементе
 fun read(catId: String){
     val index = keys.indexOf(catId)

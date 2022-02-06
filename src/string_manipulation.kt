@@ -16,6 +16,21 @@ fun getFirstWord(str: String): String {
     }
     return str
 } // обрезка строки без первого слова для дальнейшей работы
-fun getArguments(str: String): String{
+fun getArguments(str: String): String {
     return str.substring(str.indexOf(' ') + 1, str.length)
+} // проверка введённых данных на корректность по типу данных
+fun isArgumentsCorrect(str: String): Boolean {
+    val piecesOfCat = getArguments(str).split(" ").toTypedArray()
+    if(isInt(piecesOfCat[1]) && isInt(piecesOfCat[2])) {
+        return true
+    }
+    return false
+} // доп. функция для проверки типа данных
+fun isInt(pieceOfCat: String): Boolean {
+    for(element in pieceOfCat){
+        if(!element.isDigit()) {
+            return false
+        }
+    }
+    return true
 }
